@@ -6,7 +6,7 @@ public class CreditCard {
 
     private final String cardNumber;
     public BigDecimal getCurrentBalance(){
-        return null;
+        return BigDecimal.valueOf(500);
     };
     private BigDecimal cardLimit;
 
