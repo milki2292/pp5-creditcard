@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 public class CreditCard {
 
     private final String cardNumber;
+    public BigDecimal getCurrentBalance(){
+        return BigDecimal.valueOf(500);
+    };
     private BigDecimal cardLimit;
 
 
@@ -19,5 +22,9 @@ public class CreditCard {
     public BigDecimal getlimit() {
 
         return cardLimit;
+    }
+
+    public void withdraw(BigDecimal valueOf) {
+        
     }
 }

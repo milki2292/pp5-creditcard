@@ -16,7 +16,7 @@ public class CreditCardTest {
         //Act       /When
         card.assignLimit(BigDecimal.valueOf(LIMIT));
         //Assert    /then
-        Assert.assertTrue(card.getlimit().equals(BigDecimal.valueOf(LIMIT)) );
+        Assert.assertTrue(card.getlimit().equals(BigDecimal.valueOf(LIMIT)));
 
     }
     @Test(expected = NotEnoughMoneyException.class)
@@ -43,5 +43,16 @@ public class CreditCardTest {
         } catch (CreditBelowLimitException e) {
             Assert.assertTrue(true);
         }
+    }
+    @Test
+    public void withdrawFromCard(){
+        CreditCard card1 = new CreditCard("1234-5678");
+        CreditCard card2 = new CreditCard("1234-5678");
+        card1.assignLimit(BigDecimal.valueOf(1000));
+        card2.assignLimit(BigDecimal.valueOf(1000));
+        card1.withdraw(BigDecimal.valueOf(500));
+        card2.withdraw(BigDecimal.valueOf(100));
+        Assert.assertEquals(BigDecimal.valueOf(500),card1.getCurrentBalance());
+        Assert.assertEquals(BigDecimal.valueOf(900),card2.getCurrentBalance());
     }
 }
