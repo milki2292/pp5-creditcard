@@ -19,6 +19,17 @@ public class CreditCardTest {
         Assert.assertTrue(card.getlimit().equals(BigDecimal.valueOf(LIMIT)) );
 
     }
+    @Test(expected = NotEnoughMoneyException.class)
+    public void denyWithdrawBelowBalance(){
+        CreditCard card = new CreditCard("1234-5678");
+        card.assignLimit(BigDecimal.valueOf(1000));
+
+        card.withdraw(BigDecimal.valueOf(1000));
+        card.withdraw(BigDecimal.valueOf(1000));
+
+    }
+
+
     @Test
     public void CreditBelowGeneralLimitIsNotPossible(){
         //Arrange
