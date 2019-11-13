@@ -2,6 +2,7 @@ package pl.krakow.uek.pp5.creditcard.model;
 
 public class CreditCardFacade {
 
+    private final 
     public CreditCardFacade() {
         this.storage = new InMemory
     }
